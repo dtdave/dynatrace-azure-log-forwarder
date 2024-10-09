@@ -401,7 +401,7 @@ LOG_FORWARDER_TAGS="{${LOG_FORWARDER_TAGS}}"
 if [ "$ENABLE_USER_ASSIGNED_MANAGED_IDENTITY" = "true" ]; then
   az deployment group create \
   --resource-group ${RESOURCE_GROUP} \
-  --template-uri ${REPOSITORY_RELEASE_URL}${FUNCTION_ARM} \
+  --template-uri https://raw.githubusercontent.com/dtdave/dynatrace-azure-log-forwarder/refs/heads/master/deployment/${FUNCTION_ARM} \
   --parameters forwarderName="${DEPLOYMENT_NAME}" \
   targetUrl="${TARGET_URL}" \
   targetAPIToken="${TARGET_API_TOKEN}" \
@@ -418,7 +418,7 @@ if [ "$ENABLE_USER_ASSIGNED_MANAGED_IDENTITY" = "true" ]; then
 else
   az deployment group create \
   --resource-group ${RESOURCE_GROUP} \
-  --template-uri ${REPOSITORY_RELEASE_URL}${FUNCTION_ARM} \
+  --template-uri https://raw.githubusercontent.com/dtdave/dynatrace-azure-log-forwarder/refs/heads/master/deployment/${FUNCTION_ARM} \
   --parameters forwarderName="${DEPLOYMENT_NAME}" \
   targetUrl="${TARGET_URL}" \
   targetAPIToken="${TARGET_API_TOKEN}" \
